@@ -1,0 +1,7 @@
+azure_storage==0.37.0
+Flask==2.2.2
+Flask_SocketIO==5.3.2
+openai==0.26.5
+pvporcupine==2.1.4
+PyAudio==0.2.13
+python-dotenv==0.21.1

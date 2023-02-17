@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.Label {
+  text-align: left;
+  min-height: 50vh;
+  display: flex;
+  width: 25em;
+
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Question {
+  margin-left: auto;
+  max-width: calc(100% - 130px);
+
+  padding: 15px 30px;
+  background: #333;
+  border-radius: 18px 18px 0 18px;
+
+  box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%), inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+}
+
+.Answer {
+  margin-right: auto;
+  max-width: calc(100% - 130px);
+
+  padding: 15px 30px;
+  background: grey;
+  border-radius: 18px 18px 18px 0;
+
+  box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%), inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+}
+
+@media (max-width: 640px) {
+  .Label {
+    width: 20em;
+  }
+}
