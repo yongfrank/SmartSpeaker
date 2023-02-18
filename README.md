@@ -2,7 +2,7 @@
  * @Author: Frank Chu
  * @Date: 2023-02-13 18:05:53
  * @LastEditors: Frank Chu
- * @LastEditTime: 2023-02-17 17:39:28
+ * @LastEditTime: 2023-02-18 18:34:00
  * @FilePath: /SmartSpeaker/README.md
  * @Description: 
  * 
@@ -35,8 +35,9 @@ graph LR;
   - [Steps](#steps)
     - [Step 1. Install all dependencies](#step-1-install-all-dependencies)
     - [Step 2. Train Wake word(Optional)](#step-2-train-wake-wordoptional)
-    - [Step 3. filling .env files](#step-3-filling-env-files)
-    - [Step 4. run `server - main.py` and `client - npm start`](#step-4-run-server---mainpy-and-client---npm-start)
+    - [Step 3. change .env.example to .env and filling .env files](#step-3-change-envexample-to-env-and-filling-env-files)
+    - [Step 4. Change TEST\_MODE to True or IS\_RASPBERRYPI in server/utils/config.py](#step-4-change-test_mode-to-true-or-is_raspberrypi-in-serverutilsconfigpy)
+    - [Step 4. run `server - app.py` and `client - npm start`](#step-4-run-server---apppy-and-client---npm-start)
   - [Installation](#installation)
     - [PyAudio](#pyaudio)
       - [Installation error on macOS](#installation-error-on-macos)
@@ -83,13 +84,15 @@ Names: Super Stallion, Mighty Mare, The Magnificent Equine
 
 ### Step 2. [Train Wake word(Optional)](https://console.picovoice.ai/ppn)
 
-### Step 3. [filling .env files](#.env)
+### Step 3. [change .env.example to .env and filling .env files](#.env)
+
+### Step 4. Change TEST_MODE to True or IS_RASPBERRYPI in server/utils/config.py
 
 ### Step 4. run `server - app.py` and `client - npm start`
 
 ## Installation
 
-run `install.bash` or follow the steps
+run `install.sh` or follow the steps
 
 ### PyAudio
 
@@ -102,6 +105,9 @@ pip3 install pyAudio
 
 # Linux
 sudo apt install python3-pyaudio
+
+# https://stackoverflow.com/questions/58974116/how-to-install-libasound2-dev-32-bit-without-using-apt-get
+sudo apt-get install libportaudio2
 ```
 
 - [PyAudio error at the time of intallation](https://stackoverflow.com/questions/71072094/pyaudio-error-at-the-time-of-intallation-subprocess-exited-with-error)
@@ -150,5 +156,9 @@ SPEECH_REGION=${MICROSOFT-AZURE-SPEECH-REGION}
 
 ### Articles
 
+- [Building a Raspberry Pi AI Assistant using Azure and IBM Cloud](https://fadyanwar.com/index.php/2020/06/27/building-a-raspberry-pi-ai-assistant-using-azure-and-ibm-cloud/)
+- [Live Captioning with Azure Cognitive Services!](https://www.hackster.io/jenfoxbot/live-captioning-with-azure-cognitive-services-02c3f7)
+- [Voice Assistant with Python](https://blog.csdn.net/m0_57307642/article/details/120849915)
+- [GPT-3: text-davinci-003](https://platform.openai.com/docs/models/overview)
 - [GPTHunt](https://www.bilibili.com/video/BV11M411F7Ww/?share_source=copy_web&vd_source=bf4952280cde801b178268abc99a7047)
 - [GPTSpeaker](https://mp.weixin.qq.com/s/NUGygw8JgkdemVicO6fiPw)

@@ -2,7 +2,7 @@
 Author: Frank Chu
 Date: 2023-02-16 18:33:54
 LastEditors: Frank Chu
-LastEditTime: 2023-02-16 23:00:28
+LastEditTime: 2023-02-18 19:56:03
 FilePath: /SmartSpeaker/server/app.py
 Description: 
 
@@ -20,6 +20,8 @@ from utils.agent import chatGPTAgent as gpt
 
 import utils.state_of_system as state
 import utils.config as config
+from utils.edge_tts import tts as rasp_tts
+from utils.recognition_asr import asr as rasp_asr
 
 
 app = Flask(__name__)
@@ -32,13 +34,13 @@ def index():
 def main_speaker_process():
     
     def run():
-        question = speech.recognize_from_microphone()
+        question = rasp_asr() if config.IS_RASPBERRYPI else speech.recognize_from_microphone()
         socketio.emit('state', { 'state': state.ASR_END, 'value' : question })
-            
+        
         res = gpt.chatGPT(question)
         socketio.emit('state', { 'state': state.GPT_END, 'value': res } )
         
-        speech.tts(res)
+        rasp_tts(res) if config.IS_RASPBERRYPI else speech.tts(res)
         socketio.emit('state', { 'state': state.TTS_END, 'value': ""} )
         # recording = False
     

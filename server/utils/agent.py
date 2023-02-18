@@ -2,7 +2,7 @@
 Author: Frank Chu
 Date: 2023-02-13 21:35:14
 LastEditors: Frank Chu
-LastEditTime: 2023-02-17 13:43:43
+LastEditTime: 2023-02-18 18:52:52
 FilePath: /SmartSpeaker/server/utils/agent.py
 Description: 
 
@@ -12,6 +12,9 @@ import os
 import azure.cognitiveservices.speech as speechsdk
 import openai
 import dotenv
+import utils.config as config
+import utils.recognition_asr as rasp_asr
+from utils.edge_tts import tts as rasp_tts
 
 dotenv.load_dotenv()
 
@@ -66,32 +69,37 @@ class speechAgent:
     
     # Text-To-Speech
     def tts(res):
-        # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
-        speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
-        audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
+        if config.IS_RASPBERRYPI:
+            rasp_tts(res)
+        else:
+            # This example requires environment variables named "SPEECH_KEY" and "SPEECH_REGION"
+            speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
+            audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 
-        # The language of the voice that speaks.
-        speech_config.speech_synthesis_voice_name='zh-CN-YunxiNeural'
+            # The language of the voice that speaks.
+            speech_config.speech_synthesis_voice_name='zh-CN-YunxiNeural'
 
-        speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
+            speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
 
-        # Get text from the console and synthesize to the default speaker.
-        text = res
+            # Get text from the console and synthesize to the default speaker.
+            text = res
 
-        speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
-        
-        if speech_synthesis_result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
-            print("Speech synthesized for text [{}]".format(text))
-        elif speech_synthesis_result.reason == speechsdk.ResultReason.Canceled:
-            cancellation_details = speech_synthesis_result.cancellation_details
-            print("Speech synthesis canceled: {}".format(cancellation_details.reason))
-            if cancellation_details.reason == speechsdk.CancellationReason.Error:
-                if cancellation_details.error_details:
-                    print("Error details: {}".format(cancellation_details.error_details))
-                    print("Did you set the speech resource key and region values?")
+            speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
+            
+            if speech_synthesis_result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
+                print("Speech synthesized for text [{}]".format(text))
+                return
+            elif speech_synthesis_result.reason == speechsdk.ResultReason.Canceled:
+                cancellation_details = speech_synthesis_result.cancellation_details
+                print("Speech synthesis canceled: {}".format(cancellation_details.reason))
+                if cancellation_details.reason == speechsdk.CancellationReason.Error:
+                    if cancellation_details.error_details:
+                        print("Error details: {}".format(cancellation_details.error_details))
+                        print("Did you set the speech resource key and region values?")
 
         # print(f"Meijia is saying: {res}")
-        # os.system(f'say -v "Mei-Jia" "{res}"')
+        os.system(f'espeak-ng -v "yue" "{res}"') if config.IS_RASPBERRYPI else os.system(f'say -v "Mei-Jia" "{res}"')
+        
     
 class chatGPTAgent:
     # ask chat gpt

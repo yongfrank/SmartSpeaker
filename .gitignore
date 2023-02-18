@@ -3,3 +3,4 @@ __pycache__
 venv
 openai-quickstart-node
 openai-quickstart-python
+node_modules

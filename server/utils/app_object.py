@@ -2,7 +2,7 @@
 Author: Frank Chu
 Date: 2023-02-16 19:15:19
 LastEditors: Frank Chu
-LastEditTime: 2023-02-17 01:00:43
+LastEditTime: 2023-02-18 15:49:30
 FilePath: /SmartSpeaker/server/utils/app_object.py
 Description: 
 
@@ -38,6 +38,7 @@ class App_object:
             frames_per_buffer=porcupine.frame_length
         )
         return audio_stream
+    
     porcupine = porcupine_init()
     audio_stream = audio_stream_init(porcupine=porcupine)
     

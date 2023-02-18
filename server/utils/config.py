@@ -2,7 +2,7 @@
 Author: Frank Chu
 Date: 2023-02-16 18:40:52
 LastEditors: Frank Chu
-LastEditTime: 2023-02-17 00:59:52
+LastEditTime: 2023-02-18 12:38:55
 FilePath: /SmartSpeaker/server/utils/config.py
 Description: 
 
@@ -20,6 +20,7 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
 TEST_MODE = False
 IS_RASPBERRYPI = False
+# IS_RASPBERRYPI = True
 
 TEST_TRIGGER_WORD = 'picovoice'
 RASPBERRYPI_PPN = 'hellomoss_raspberrypi.ppn'
