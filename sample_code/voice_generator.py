@@ -41,4 +41,4 @@ def tts(text):
     asyncio.get_event_loop().run_until_complete(_main(TEXT=text, VOICE=VOICE, OUTPUT_FILE=OUTPUT_FILE))
     play_local_file(OUTPUT_FILE)
     
-tts("你好，我是云希，我回来啦")
+tts("嗨")

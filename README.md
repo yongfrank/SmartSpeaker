@@ -2,7 +2,7 @@
  * @Author: Frank Chu
  * @Date: 2023-02-13 18:05:53
  * @LastEditors: Frank Chu
- * @LastEditTime: 2023-02-18 18:34:00
+ * @LastEditTime: 2023-02-18 20:48:53
  * @FilePath: /SmartSpeaker/README.md
  * @Description: 
  * 
@@ -33,7 +33,7 @@ graph LR;
   - [Characteristics](#characteristics)
     - [Example Questions](#example-questions)
   - [Steps](#steps)
-    - [Step 1. Install all dependencies](#step-1-install-all-dependencies)
+    - [Step 1. Install all dependencies `client - npm install`](#step-1-install-all-dependencies-client---npm-install)
     - [Step 2. Train Wake word(Optional)](#step-2-train-wake-wordoptional)
     - [Step 3. change .env.example to .env and filling .env files](#step-3-change-envexample-to-env-and-filling-env-files)
     - [Step 4. Change TEST\_MODE to True or IS\_RASPBERRYPI in server/utils/config.py](#step-4-change-test_mode-to-true-or-is_raspberrypi-in-serverutilsconfigpy)
@@ -43,7 +43,7 @@ graph LR;
       - [Installation error on macOS](#installation-error-on-macos)
     - [picovoice.ai](#picovoiceai)
     - [Azure Speech Service](#azure-speech-service)
-    - [.env](#env)
+    - [dotenv](#dotenv)
   - [Reference](#reference)
     - [Services](#services)
     - [Articles](#articles)
@@ -80,13 +80,13 @@ Names: Super Stallion, Mighty Mare, The Magnificent Equine
 
 ## Steps
 
-### Step 1. [Install all dependencies](#installation)
+### Step 1. [Install all dependencies `client - npm install`](#installation)
 
 ### Step 2. [Train Wake word(Optional)](https://console.picovoice.ai/ppn)
 
-### Step 3. [change .env.example to .env and filling .env files](#.env)
+### Step 3. [change .env.example to .env and filling .env files](#dotenv)
 
-### Step 4. Change TEST_MODE to True or IS_RASPBERRYPI in server/utils/config.py
+### Step 4. Change TEST_MODE to True or IS_RASPBERRYPI in `server/utils/config.py`
 
 ### Step 4. run `server - app.py` and `client - npm start`
 
@@ -130,7 +130,7 @@ pip install azure-cognitiveservices-speech
 
 - [Install the Speech SDK](https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-python&tabs=linux%2Cubuntu%2Cdotnet%2Cjre%2Cmaven%2Cnodejs%2Cmac%2Cpypi)
 
-### .env
+### dotenv
 
 ```bash
 cd ./code && mv .env.example .env

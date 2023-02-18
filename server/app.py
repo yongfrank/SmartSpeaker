@@ -2,7 +2,7 @@
 Author: Frank Chu
 Date: 2023-02-16 18:33:54
 LastEditors: Frank Chu
-LastEditTime: 2023-02-18 19:56:03
+LastEditTime: 2023-02-18 20:55:54
 FilePath: /SmartSpeaker/server/app.py
 Description: 
 
@@ -39,6 +39,7 @@ def main_speaker_process():
         
         res = gpt.chatGPT(question)
         socketio.emit('state', { 'state': state.GPT_END, 'value': res } )
+        print("GPT res: ", res)
         
         rasp_tts(res) if config.IS_RASPBERRYPI else speech.tts(res)
         socketio.emit('state', { 'state': state.TTS_END, 'value': ""} )
@@ -64,6 +65,7 @@ def main_speaker_process():
         elif keyword_index == 0:
             print("detected picovoice") if config.TEST_MODE else print("detected hello pie")
             socketio.emit('state', { 'state' : state.TRIGGER, 'value' : "" })
+            speech.play_file(fileName="hi.mp3")
             run()
             socketio.emit('state', { 'state' : state.RUNNING, 'value' : "" })
     

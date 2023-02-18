@@ -2,7 +2,7 @@
 Author: Frank Chu
 Date: 2023-02-18 18:32:04
 LastEditors: Frank Chu
-LastEditTime: 2023-02-18 19:55:44
+LastEditTime: 2023-02-18 22:01:59
 FilePath: /SmartSpeaker/server/utils/recognition_asr.py
 Description: 
 
@@ -19,7 +19,7 @@ def asr():
         print("Say something!")
         # https://github.com/Uberi/speech_recognition/issues/481
         r.adjust_for_ambient_noise(source,duration=1)
-        audio = r.listen(source, phrase_time_limit=10)
+        audio = r.listen(source, phrase_time_limit=15)
 
     print("end recording")
     # recognize speech using Microsoft Azure Speech

@@ -2,21 +2,23 @@
 Author: Frank Chu
 Date: 2023-02-13 21:35:14
 LastEditors: Frank Chu
-LastEditTime: 2023-02-18 18:52:52
+LastEditTime: 2023-02-18 22:17:16
 FilePath: /SmartSpeaker/server/utils/agent.py
 Description: 
 
 Copyright (c) 2023 by ${git_name}, All Rights Reserved. 
 '''
 import os
-import azure.cognitiveservices.speech as speechsdk
 import openai
 import dotenv
 import utils.config as config
 import utils.recognition_asr as rasp_asr
 from utils.edge_tts import tts as rasp_tts
+import pygame
 
 dotenv.load_dotenv()
+
+if not config.IS_RASPBERRYPI: import azure.cognitiveservices.speech as speechsdk
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 # import pvcobra
@@ -66,7 +68,19 @@ class speechAgent:
                 return ""
             return ""
         
-    
+    def play_file(fileName='hi.mp3', volume = 1):
+        pygame.mixer.init()
+        
+        #loading
+        pygame.mixer.music.load(fileName)
+        pygame.mixer.music.set_volume(volume)
+        pygame.mixer.music.play(start=0.0)
+        
+        while pygame.mixer.music.get_busy():
+            pass
+        
+        pygame.mixer.quit()
+        
     # Text-To-Speech
     def tts(res):
         if config.IS_RASPBERRYPI:
@@ -87,7 +101,8 @@ class speechAgent:
             speech_synthesis_result = speech_synthesizer.speak_text_async(text).get()
             
             if speech_synthesis_result.reason == speechsdk.ResultReason.SynthesizingAudioCompleted:
-                print("Speech synthesized for text [{}]".format(text))
+                # print("Speech synthesized for text [{}]".format(text))
+                print("Speech synthesized finished")
                 return
             elif speech_synthesis_result.reason == speechsdk.ResultReason.Canceled:
                 cancellation_details = speech_synthesis_result.cancellation_details
@@ -116,7 +131,6 @@ class chatGPTAgent:
         
         if len(text) == 0:
             print("error => ars speech to text failure.")
-            return
         text = text.replace('\n', '').replace('\r', '').strip()
         res = ask(text)
         return res
