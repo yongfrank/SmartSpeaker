@@ -2,7 +2,7 @@
 Author: Frank Chu
 Date: 2023-02-13 21:35:14
 LastEditors: Frank Chu
-LastEditTime: 2023-02-18 22:17:16
+LastEditTime: 2023-02-18 22:39:35
 FilePath: /SmartSpeaker/server/utils/agent.py
 Description: 
 
@@ -129,8 +129,9 @@ class chatGPTAgent:
             )
             return f"{response.choices[0].text.strip()}"
         
-        if len(text) == 0:
+        if text is None or text == '':
             print("error => ars speech to text failure.")
+            return '没有听清楚，再说一遍吧。'
         text = text.replace('\n', '').replace('\r', '').strip()
         res = ask(text)
         return res

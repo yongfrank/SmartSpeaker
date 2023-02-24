@@ -2,7 +2,7 @@
 Author: Frank Chu
 Date: 2023-02-16 18:33:54
 LastEditors: Frank Chu
-LastEditTime: 2023-02-18 20:55:54
+LastEditTime: 2023-02-19 06:48:49
 FilePath: /SmartSpeaker/server/app.py
 Description: 
 
@@ -35,8 +35,8 @@ def main_speaker_process():
     
     def run():
         question = rasp_asr() if config.IS_RASPBERRYPI else speech.recognize_from_microphone()
+        if question is None: question = ''
         socketio.emit('state', { 'state': state.ASR_END, 'value' : question })
-        
         res = gpt.chatGPT(question)
         socketio.emit('state', { 'state': state.GPT_END, 'value': res } )
         print("GPT res: ", res)
