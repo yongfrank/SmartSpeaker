@@ -2,7 +2,7 @@
  * @Author: Frank Chu
  * @Date: 2023-02-13 18:05:53
  * @LastEditors: Frank Chu
- * @LastEditTime: 2023-02-18 22:29:46
+ * @LastEditTime: 2023-02-25 11:07:32
  * @FilePath: /SmartSpeaker/README.md
  * @Description: 
  * 
@@ -22,6 +22,10 @@ graph LR;
     word --> asr --> nlp --> gpt --> tts --> sound;
 ```
 
+Video Link: [Twitter](https://twitter.com/i/status/1629315971977719808)
+
+![GPT-Screenshot](./resources/screenshot.png)
+
 - [Trigger - picovoice.ai](https://picovoice.ai/docs/quick-start/porcupine-python/)
 - [Recording - PyAudio](https://pypi.org/project/PyAudio/)
 - [ASR - Microsoft Azure](https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=macos%2Cterminal&pivots=programming-language-python)
@@ -37,7 +41,7 @@ graph LR;
     - [Step 2. Train Wake word(Optional)](#step-2-train-wake-wordoptional)
     - [Step 3. change .env.example to .env and filling .env files](#step-3-change-envexample-to-env-and-filling-env-files)
     - [Step 4. Change TEST\_MODE to True or IS\_RASPBERRYPI in `server/utils/config.py`(Important), connect url in `client/src/app.js`(Optional)](#step-4-change-test_mode-to-true-or-is_raspberrypi-in-serverutilsconfigpyimportant-connect-url-in-clientsrcappjsoptional)
-    - [Step 4. run `server - app.py` and `client - npm start`](#step-4-run-server---apppy-and-client---npm-start)
+    - [Step 4. run `sh start.sh` or `server - app.py` and `client - npm start`](#step-4-run-sh-startsh-or-server---apppy-and-client---npm-start)
   - [Installation](#installation)
     - [PyAudio](#pyaudio)
       - [Installation error on macOS](#installation-error-on-macos)
@@ -88,7 +92,7 @@ Names: Super Stallion, Mighty Mare, The Magnificent Equine
 
 ### Step 4. Change TEST_MODE to True or IS_RASPBERRYPI in `server/utils/config.py`(Important), connect url in `client/src/app.js`(Optional)
 
-### Step 4. run `server - app.py` and `client - npm start`
+### Step 4. run `sh start.sh` or `server - app.py` and `client - npm start`
 
 ## Installation
 

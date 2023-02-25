@@ -2,7 +2,7 @@
  * @Author: Frank Chu
  * @Date: 2023-02-16 19:34:04
  * @LastEditors: Frank Chu
- * @LastEditTime: 2023-02-18 06:49:17
+ * @LastEditTime: 2023-02-25 10:36:56
  * @FilePath: /SmartSpeaker/client/src/App.js
  * @Description: https://mhnpd.github.io/react-loader-spinner/docs/components/tail-spin React Spinners
  * 
@@ -78,7 +78,8 @@ function App() {
             <StateLabel state={stringExample}/>
           </div> */}
           
-            { labelValue.answer !== '' ? <div className='Answer'><StateLabel state={labelValue.answer} speed={150}/></div> : false }
+            {/* { labelValue.answer !== '' ? <div className='Answer'><StateLabel state={labelValue.answer} speed={150}/></div> : false } */}
+            { labelValue.answer !== '' ? <div className='Answer'><StateLabel state={labelValue.answer} speed={30}/></div> : false }
           {/* <div className='Answer'>
             <StateLabel state={stringExample}/>
           </div> */}
