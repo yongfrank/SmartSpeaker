@@ -2,9 +2,9 @@
 Author: Frank Chu
 Date: 2023-02-16 18:33:54
 LastEditors: Frank Chu
-LastEditTime: 2023-02-19 06:48:49
+LastEditTime: 2023-02-25 10:24:17
 FilePath: /SmartSpeaker/server/app.py
-Description: 
+Description: /opt/homebrew/bin/python3.10
 
 Copyright (c) 2023 by ${git_name}, All Rights Reserved. 
 '''
@@ -65,7 +65,7 @@ def main_speaker_process():
         elif keyword_index == 0:
             print("detected picovoice") if config.TEST_MODE else print("detected hello pie")
             socketio.emit('state', { 'state' : state.TRIGGER, 'value' : "" })
-            speech.play_file(fileName="hi.mp3")
+            # speech.play_file(fileName="hi.mp3")
             run()
             socketio.emit('state', { 'state' : state.RUNNING, 'value' : "" })
     

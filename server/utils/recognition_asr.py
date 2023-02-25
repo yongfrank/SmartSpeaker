@@ -2,7 +2,7 @@
 Author: Frank Chu
 Date: 2023-02-18 18:32:04
 LastEditors: Frank Chu
-LastEditTime: 2023-02-18 22:01:59
+LastEditTime: 2023-02-25 10:24:47
 FilePath: /SmartSpeaker/server/utils/recognition_asr.py
 Description: 
 
@@ -26,6 +26,7 @@ def asr():
     AZURE_SPEECH_KEY = config.SPEECH_KEY  # Microsoft Speech API keys 32-character lowercase hexadecimal strings
     try:
         res = r.recognize_azure(audio, key=AZURE_SPEECH_KEY, language="zh-CN", location=config.SPEECH_REGION)
+        # res = r.recognize_azure(audio, key=AZURE_SPEECH_KEY, language="en-US", location=config.SPEECH_REGION)
         print(res[0])
         return res[0]
     except sr.UnknownValueError:

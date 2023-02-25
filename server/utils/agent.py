@@ -2,7 +2,7 @@
 Author: Frank Chu
 Date: 2023-02-13 21:35:14
 LastEditors: Frank Chu
-LastEditTime: 2023-02-18 22:39:35
+LastEditTime: 2023-02-25 10:55:49
 FilePath: /SmartSpeaker/server/utils/agent.py
 Description: 
 
@@ -39,7 +39,7 @@ class speechAgent:
         speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
         
         # language configuration
-        speech_config.speech_recognition_language="zh-CN"
+        speech_config.speech_recognition_language= "en-US" if config.LANGUAGE == 'en-US' else "zh-CN"
 
         audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
         
@@ -91,7 +91,10 @@ class speechAgent:
             audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 
             # The language of the voice that speaks.
-            speech_config.speech_synthesis_voice_name='zh-CN-YunxiNeural'
+            # https://speech.microsoft.com/portal/voicegallery
+            # speech_config.speech_synthesis_voice_name='zh-CN-YunxiNeural'
+            speech_config.speech_synthesis_voice_name='en-US-JennyNeural' if config.LANGUAGE == 'en-US' else 'zh-CN-YunxiNeural'
+            
 
             speech_synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=audio_config)
 
