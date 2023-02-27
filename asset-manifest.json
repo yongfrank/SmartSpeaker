@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/SmartSpeaker/static/css/main.89957c6e.css",
+    "main.js": "/SmartSpeaker/static/js/main.384b08b1.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/SmartSpeaker/static/js/787.c4e7f8f9.chunk.js",
+    "index.html": "/SmartSpeaker/index.html",
+    "main.89957c6e.css.map": "/SmartSpeaker/static/css/main.89957c6e.css.map",
+    "main.384b08b1.js.map": "/SmartSpeaker/static/js/main.384b08b1.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/SmartSpeaker/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.89957c6e.css",
+    "static/js/main.384b08b1.js"
+  ]
+}
