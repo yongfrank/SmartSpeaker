@@ -2,7 +2,7 @@
  * @Author: Frank Chu
  * @Date: 2023-02-13 18:05:53
  * @LastEditors: Frank Chu
- * @LastEditTime: 2023-02-25 11:07:32
+ * @LastEditTime: 2023-02-27 20:41:07
  * @FilePath: /SmartSpeaker/README.md
  * @Description: 
  * 
@@ -23,6 +23,8 @@ graph LR;
 ```
 
 Video Link: [Twitter](https://twitter.com/i/status/1629315971977719808)
+
+Demo Link: [Smart Speaker](https://yongfrank.github.io/SmartSpeaker/)
 
 ![GPT-Screenshot](./resources/screenshot.png)
 

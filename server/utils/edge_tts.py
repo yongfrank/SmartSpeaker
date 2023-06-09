@@ -2,7 +2,7 @@
 Author: Frank Chu
 Date: 2023-02-18 17:29:05
 LastEditors: Frank Chu
-LastEditTime: 2023-02-18 17:43:50
+LastEditTime: 2023-03-03 18:04:56
 FilePath: /SmartSpeaker/server/utils/edge_tts.py
 Description: 
 
@@ -10,7 +10,6 @@ Copyright (c) 2023 by ${git_name}, All Rights Reserved.
 '''
 import asyncio
 import pygame
-import edge_tts
 
 # 【树莓派-微软TTS-多模型文本转语音】 https://www.bilibili.com/video/BV1T3411n7Uu/?share_source=copy_web&vd_source=bf4952280cde801b178268abc99a7047
 def play_local_file(file, volume = 1):

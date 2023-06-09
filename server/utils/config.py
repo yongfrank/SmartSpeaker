@@ -2,8 +2,8 @@
 Author: Frank Chu
 Date: 2023-02-16 18:40:52
 LastEditors: Frank Chu
-LastEditTime: 2023-02-25 10:53:45
-FilePath: /SmartSpeaker/users/yongfrank/developer/smartspeaker/server/utils/config.py
+LastEditTime: 2023-02-25 14:34:56
+FilePath: /SmartSpeaker/server/utils/config.py
 Description: 
 
 Copyright (c) 2023 by ${git_name}, All Rights Reserved. 
@@ -25,4 +25,4 @@ IS_RASPBERRYPI = False
 TEST_TRIGGER_WORD = 'picovoice'
 RASPBERRYPI_PPN = 'hellomoss_raspberrypi.ppn'
 MACOS_PPN = 'hellopie_macos.ppn'
-LANGUAGE = 'en-US'
+LANGUAGE = 'zh-CN'
