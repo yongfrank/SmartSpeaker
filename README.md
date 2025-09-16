@@ -10,6 +10,12 @@
 -->
 # Smart Speaker based on GPT by OpenAI
 
+Based on the refined OpenAI models and extensive research on user needs, this project aimed to select a speech implementation framework that could meet the requirements of embedded systems.
+
+We utilized Python Flask and React Socket.io to achieve seamless communication between the front-end web page and back-end server, visualizing GPT texts on the web page, and integrating Azure and OpenAI GPT models to accomplish speech recognition and synthesis.
+
+During the implementation process, we identified compatibility issues arising from differences in ARM32 and ARM64 architectures and restructured the code to ensure compatibility, resulting in a score of 95 points for the final project.
+
 ```mermaid
 graph LR;
     word((Trigger Word));
