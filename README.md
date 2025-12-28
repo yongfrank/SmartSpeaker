@@ -174,3 +174,11 @@ SPEECH_REGION=${MICROSOFT-AZURE-SPEECH-REGION}
 - [GPT-3: text-davinci-003](https://platform.openai.com/docs/models/overview)
 - [GPTHunt](https://www.bilibili.com/video/BV11M411F7Ww/?share_source=copy_web&vd_source=bf4952280cde801b178268abc99a7047)
 - [GPTSpeaker](https://mp.weixin.qq.com/s/NUGygw8JgkdemVicO6fiPw)
+
+## Highlight
+
+GitHub Link: https://github.com/yongfrank/SmartSpeaker
+
+* Based on the refined OpenAI models and extensive research on user needs, this project aimed to select a speech implementation framework that could meet the requirements of embedded systems.
+* We utilized Python Flask and React Socket.io to achieve seamless communication between the front-end web page and back-end server, visualizing GPT texts on the web page, and integrating Azure and OpenAI GPT models to accomplish speech recognition and synthesis.
+* During the implementation process, we identified compatibility issues arising from differences in ARM32 and ARM64 architectures and restructured the code to ensure compatibility, resulting in a score of 95 points for the final project.
