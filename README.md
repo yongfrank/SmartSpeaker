@@ -177,6 +177,8 @@ SPEECH_REGION=${MICROSOFT-AZURE-SPEECH-REGION}
 
 ## Highlight
 
+2022-12 - 2023-02
+
 GitHub Link: https://github.com/yongfrank/SmartSpeaker
 
 * Based on the refined OpenAI models and extensive research on user needs, this project aimed to select a speech implementation framework that could meet the requirements of embedded systems.
